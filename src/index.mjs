@@ -2,7 +2,7 @@ import qs from 'qs';
 import axios from 'axios'
 import {createSign, createVerify} from 'crypto'
 
-export async function generateJWT(sfdc_consumer_key, sfdc_user, sfdc_auth_url){
+export async function generateJWT(privateKey, publicCertificate, sfdc_consumer_key, sfdc_user, sfdc_auth_url){
     try{
         var signObj = createSign('RSA-SHA256')
         var jwtHeader = {
@@ -60,7 +60,7 @@ export async function getAccess({privateKey, publicCertificate},{sfdc_consumer_k
     if (testBool === true){
       return testSigning(privateKey, publicCertificate)
     } else {
-      const jwtToken = await generateJWT(sfdc_consumer_key, sfdc_user, sfdc_auth_url)
+      const jwtToken = await generateJWT(privateKey, publicCertificate, sfdc_consumer_key, sfdc_user, sfdc_auth_url)
       const accessToken = await getAccessToken(jwtToken, sfdc_oauth_url)
       return accessToken
     }
@@ -69,3 +69,18 @@ export async function getAccess({privateKey, publicCertificate},{sfdc_consumer_k
     return null
   }
 }
+
+
+// // Need keys and certs? 
+// //openssl req -x509 -newkey rsa:4096 -nodes -keyout openssl.key -out openssl.crt -subj /CN=SFDS -days 1000
+
+// privateKey // 
+// publicCertificate // 
+
+// sfdc_consumer_key //connected app api key (NOT SECRET)
+// sfdc_user_login_id //your login id (NOT THE ID OF THE APP)
+// sfdc_auth_url //https://login.salesforce.com
+// sfdc_oauth_url //https://login.salesforce.com/services/oauth2/token
+
+// testBool // true if you want to test signing. false or null or undefined for actually using the functions
+
