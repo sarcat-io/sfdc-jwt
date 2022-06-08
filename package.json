@@ -1,0 +1,32 @@
+{
+  "name": "sfdc-jwt",
+  "version": "1.0.0",
+  "description": "simple sfdc access code getter using the sfdc jwt oauth flow",
+  "main": "src/index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManifestDemocracy/sfdc-jwt.git"
+  },
+  "keywords": [
+    "sfdc",
+    "salesforce",
+    "jwt",
+    "oauth",
+    "oauth2",
+    "access",
+    "token"
+  ],
+  "author": "Brian Thompson (Manifest Democaracy)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ManifestDemocracy/sfdc-jwt/issues"
+  },
+  "homepage": "https://github.com/ManifestDemocracy/sfdc-jwt#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "qs": "^6.10.5"
+  }
+}
