@@ -24,8 +24,14 @@ export async function generateJWT(privateKey, publicCertificate, sfdc_consumer_k
     }
 }
 
-export async function getAccess({privateKey, publicCertificate},{sfdc_consumer_key, sfdc_user, sfdc_auth_url, sfdc_oauth_url}, testBool){
-
+export async function getAccess(arg1, arg2, arg3){
+  if (arg2 || arg3){
+    var {privateKey, publicCertificate} = arg1
+    var {sfdc_consumer_key, sfdc_user, sfdc_auth_url, sfdc_oauth_url} = arg2
+    var testBool = arg3
+  } else {
+    var [{privateKey, publicCertificate},{sfdc_consumer_key, sfdc_user, sfdc_auth_url, sfdc_oauth_url}, testBool] = arg1
+  }
   async function testSigning(privateKey, publicCertificate){
     try{
       var testMsg = Buffer.from('test')

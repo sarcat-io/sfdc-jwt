@@ -1,4 +1,6 @@
 # sfdc-jwt
+
+v1.0.2 added support for single array object as input argument for getAccess function: [{privateKey, publicCertificate},{sfdc_consumer_key, sfdc_user, sfdc_auth_url, sfdc_oauth_url}, testBool]
 simple as possible
 
 For generating certificates, unless you have a requirement to use CA issued certs, please use this openssl command:

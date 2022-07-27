@@ -1,6 +1,6 @@
 {
   "name": "sfdc-jwt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "simple sfdc access code getter using the sfdc jwt oauth flow",
   "main": "src/index.mjs",
   "scripts": {
